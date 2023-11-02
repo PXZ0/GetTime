@@ -21,11 +21,8 @@ class _LoginPageState extends State<LoginPage> {
     }
   }
 
-  @override
-  Widget build(BuildContext context) {
-
-    return Scaffold(
-      body: SingleChildScrollView(
+  Widget _body() {
+    return SingleChildScrollView(
         child: SizedBox(
           width: MediaQuery.of(context).size.width,
           height: MediaQuery.of(context).size.height,
@@ -72,8 +69,32 @@ class _LoginPageState extends State<LoginPage> {
                 SizedBox(height: 30.0),
 
                 ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.transparent,
+                    foregroundColor: Colors.white,
+                    elevation: 0,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                    side: const BorderSide(
+                      
+                      width: 1.0,
+                      color: Colors.white,
+                    )
+                    
+                  ),
+                  
                   onPressed: _login,
-                  child: Text('Fazer Login'),                  
+
+                  child: Container(
+                    width: double.infinity, 
+                    child: Text(
+                      'Fazer Login', 
+                      textAlign: TextAlign.center
+                      
+                    ),
+                  ),
+                  
                 ),
 
                 SizedBox(height: 10.0),
@@ -86,12 +107,25 @@ class _LoginPageState extends State<LoginPage> {
                     onTap: () => Navigator.of(context).pushNamed('/cadastro'),
                   )
                 )
-                
               ],
-              
             ),
           )
         )
+      );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+
+    return Scaffold(
+      body: Stack(
+        children: [
+          SizedBox(
+            height: MediaQuery.of(context).size.height,
+            child: Image.asset('assets/images/bkg1.png', fit: BoxFit.cover,),
+          ),
+          _body(),
+        ],
       )
     );
   }
