@@ -3,7 +3,6 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:getime/home_page.dart';
 
 class LoginPage extends StatefulWidget {
 

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:getime/app_controller.dart';
+import 'package:getime/barb_page.dart';
 import 'package:getime/cad_page.dart';
+import 'package:getime/config_page.dart';
 import 'package:getime/home_page.dart';
 import 'package:getime/login_page.dart';
 
@@ -24,7 +26,9 @@ class GetTime extends StatelessWidget {
           routes: {
             '/': (context) => LoginPage(),
             '/cadastro': (context) => CadPage(),
-            '/home':(context) => HomePage()
+            '/home':(context) => HomePage(),
+            '/config':(context) => ConfigPage(),
+            '/barbearia':(context) => BarbPage(),
 
           },
         );

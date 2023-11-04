@@ -8,6 +8,11 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+
+  void _EntrarBarbearia (){
+    Navigator.of(context).pushNamed('/barbearia');
+  }
+
   @override
   Widget build(BuildContext context) {
 
@@ -37,9 +42,29 @@ class _HomePageState extends State<HomePage> {
               },
             ),
 
+            // Opção de Agenda
+            ListTile(
+              leading: Icon(Icons.calendar_month),
+              title: Text('Agenda'),
+              subtitle: Text('Veja aqui seus horarios'),
+              onTap: (){
+                print('home');
+              },
+            ),
+
+            // Opção de Configurações
+            ListTile(
+              leading: Icon(Icons.settings),
+              title: Text('Configurações'),
+              subtitle: Text('Configura aqui'),
+              onTap: (){
+                Navigator.of(context).pushNamed('/config');
+              },
+            ),
+
             // Opção de Logout
             ListTile(
-              leading: Icon(Icons.home),
+              leading: Icon(Icons.logout),
               title: Text('Sair'),
               subtitle: Text('Aqui sai'),
               onTap: (){
@@ -91,17 +116,38 @@ class _HomePageState extends State<HomePage> {
           width: MediaQuery.of(context).size.width,
           height: MediaQuery.of(context).size.height,
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
             children: <Widget> [
+
+              SizedBox(height: 20.0,),
+
+
+              Text(
+                'Perto de Você',
+                style: TextStyle(fontSize: 35.0, fontWeight: FontWeight.bold, fontFamily: 'RobotoMono'),
+              ),
+              
+              SizedBox(height: 10.0,),
+
+              Text(
+                'Clique e agende já seu horário',
+                style: TextStyle(
+                    fontSize: 17.0, ),
+              ),
+              
+
               SizedBox(
                 width: double.infinity,
                 height: 20.00,
               ),
+              
+              ListTile(
+                leading: Icon(Icons.location_on),
+                title: Text('Barbearia do Emerson'),
+                subtitle: Text('Aberta agora'),
+                onTap:  _EntrarBarbearia,
+              ),
 
-              SizedBox(
-                width: double.infinity,
-                child: Icon(Icons.local_attraction),
-                
-              )
 
             ],
           )
