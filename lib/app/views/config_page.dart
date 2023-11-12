@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:getime/app_controller.dart';
+import 'package:getime/app/app_controller.dart';
 
 class ConfigPage extends StatefulWidget {
   

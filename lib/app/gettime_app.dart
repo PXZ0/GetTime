@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:getime/app_controller.dart';
-import 'package:getime/barb_page.dart';
-import 'package:getime/cad_page.dart';
-import 'package:getime/config_page.dart';
-import 'package:getime/home_page.dart';
-import 'package:getime/login_page.dart';
+import 'package:getime/app/app_controller.dart';
+import 'package:getime/app/views/barb_page.dart';
+import 'package:getime/app/views/cad_page.dart';
+import 'package:getime/app/views/config_page.dart';
+import 'package:getime/app/views/home_page.dart';
+import 'package:getime/app/views/login_page.dart';
+import 'package:getime/app/views/splash_screen.dart';
+// import 'package:google_fonts/google_fonts.dart';
 
 class GetTime extends StatelessWidget {
   
@@ -17,6 +19,7 @@ class GetTime extends StatelessWidget {
          return MaterialApp(
           title: 'Get Time',
           theme: ThemeData(
+            // fontFamily: GoogleFonts.lato().fontFamily,
             primarySwatch: Colors.grey,
             brightness: AppController.instance.darkTheme 
               ? Brightness.dark 
@@ -24,7 +27,8 @@ class GetTime extends StatelessWidget {
           ),
           initialRoute: '/',
           routes: {
-            '/': (context) => LoginPage(),
+            '/': (context) => SplashScreen(),
+            '/login': (context) => LoginPage(),
             '/cadastro': (context) => CadPage(),
             '/home':(context) => HomePage(),
             '/config':(context) => ConfigPage(),

@@ -1,4 +1,78 @@
 import 'package:flutter/material.dart';
+import 'package:getime/app/views/components/drawer.dart';
+
+class BarbeariaSearchDelegate extends SearchDelegate{
+  List<String> searchTerms =[
+    'Barbearia',
+    'Salão',
+    'Corte',
+  ];
+
+  @override
+  List<Widget> buildActions(BuildContext context){
+    return[
+      IconButton(
+        onPressed: (){
+          query = '';
+        }, 
+        icon: const Icon(Icons.clear),
+      )
+    ];
+  }
+
+  @override
+  Widget buildLeading(BuildContext context){
+    return IconButton(
+      onPressed: () {
+        close(context, null);
+      }, 
+      icon: Icon (Icons.arrow_back)
+    );
+  }
+
+  @override
+  Widget buildResults(BuildContext context){
+    List<String> matchQuery = [];
+    for (var termo in searchTerms){
+      if(termo.toLowerCase().contains(query.toLowerCase())){
+        matchQuery.add(termo);
+      }
+    }
+    
+    return ListView.builder(
+      itemCount: matchQuery.length,
+      itemBuilder: (context, index){
+        var result = matchQuery[index];
+        return ListTile(
+          title: Text(result),
+        );
+      },
+    );
+  }
+
+  @override
+  Widget buildSuggestions(BuildContext context){
+    List<String> matchQuery = [];
+    for (var termo in searchTerms){
+      if(termo.toLowerCase().contains(query.toLowerCase())){
+        matchQuery.add(termo);
+      }
+    }
+
+    return ListView.builder(
+      itemCount: matchQuery.length,
+      itemBuilder: (context, index){
+        var result = matchQuery[index];
+        return ListTile(
+          title: Text(result),
+        );
+      },
+    );
+
+  }
+
+}
+
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -13,74 +87,33 @@ class _HomePageState extends State<HomePage> {
     Navigator.of(context).pushNamed('/barbearia');
   }
 
+
   @override
   Widget build(BuildContext context) {
 
     return Scaffold(
 
-      drawer: Drawer(
-        child: Column(
-          children: [
-            
-            // Widget de conta do usuario
-            UserAccountsDrawerHeader(
-              // currentAccountPicture: ClipRRect(
-                //borderRadius: BorderRadius.circular(40), 
-                //child:image.asset('endereco')
-              // ), Comando para foto do usuario
-              accountName: Text('Pedro'), 
-              accountEmail: Text('Pedro@gmail.com')
-            ),
-
-            // Opção de Home
-            ListTile(
-              leading: Icon(Icons.home),
-              title: Text('Inicio'),
-              subtitle: Text('teste pra tu ver'),
-              onTap: (){
-                print('home');
-              },
-            ),
-
-            // Opção de Agenda
-            ListTile(
-              leading: Icon(Icons.calendar_month),
-              title: Text('Agenda'),
-              subtitle: Text('Veja aqui seus horarios'),
-              onTap: (){
-                print('home');
-              },
-            ),
-
-            // Opção de Configurações
-            ListTile(
-              leading: Icon(Icons.settings),
-              title: Text('Configurações'),
-              subtitle: Text('Configura aqui'),
-              onTap: (){
-                Navigator.of(context).pushNamed('/config');
-              },
-            ),
-
-            // Opção de Logout
-            ListTile(
-              leading: Icon(Icons.logout),
-              title: Text('Sair'),
-              subtitle: Text('Aqui sai'),
-              onTap: (){
-                 Navigator.of(context).pushReplacementNamed('/');
-              },
-            )
-          ]
-        ),
-      ),
+      drawer: ComponentDrawer(),
 
       appBar: AppBar(
-        
+
         // Botões de ação
         actions: <Widget>[
           IconButton(
-            icon: Icon(
+            icon: const Icon(
+              Icons.search,
+              color: Colors.white,
+            ),
+            onPressed: () {
+              showSearch(
+                context: context,
+                delegate: BarbeariaSearchDelegate(),
+              );
+            },
+          ),
+
+          IconButton(
+            icon: const Icon(
               Icons.notifications,
               color: Colors.white,
             ),
@@ -90,7 +123,7 @@ class _HomePageState extends State<HomePage> {
           ),
 
           IconButton(
-            icon: Icon(
+            icon: const Icon(
               Icons.share,
               color: Colors.white,
             ),
@@ -99,15 +132,7 @@ class _HomePageState extends State<HomePage> {
             },
           ),
 
-          IconButton(
-            icon: Icon(
-              Icons.search,
-              color: Colors.white,
-            ),
-            onPressed: () {
-              // do something
-            },
-          )
+          
         ],
       ),
 
@@ -147,8 +172,6 @@ class _HomePageState extends State<HomePage> {
                 subtitle: Text('Aberta agora'),
                 onTap:  _EntrarBarbearia,
               ),
-
-
             ],
           )
         ),
