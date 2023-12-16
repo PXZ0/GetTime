@@ -1,6 +1,6 @@
-// ignore_for_file: prefer_const_constructors
-
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
 
 class CadPage extends StatefulWidget {
   const CadPage({super.key});
@@ -16,10 +16,18 @@ class _CadPageState extends State<CadPage> {
   String senha = '';
 
   // Função para cadastro
-  void _cadastro() {
+  Future<void> cadastro(nome, email, senha) async{
+    final response = await http.post(
+      Uri.parse('http://10.0.2.2/api/api.php'),
+      headers: {'Content-Type': 'application/jason'},
+      body:jsonEncode({'nome': nome, 'email': email, 'senha': senha})
+    );
 
-
-    Navigator.of(context).pushReplacementNamed('/home');
+    if(response.statusCode == 200){
+      Navigator.of(context).pushReplacementNamed('/home');
+    }else{
+      print('Falha no cadastro');
+    }
   }
 
   Widget _body (){
@@ -34,7 +42,7 @@ class _CadPageState extends State<CadPage> {
               children: <Widget>[
                 
                 // Texto de Chamada
-                Text(
+                const Text(
                   'Crie uma nova conta',
                   textAlign: TextAlign.center,
                   style: TextStyle(
@@ -44,19 +52,19 @@ class _CadPageState extends State<CadPage> {
                   ),
                 ),
 
-                SizedBox(height: 10.0),
+                const SizedBox(height: 10.0),
 
                 // Redirecionamento para Login
                 Container(
                   child: GestureDetector(
-                    child: Text(
+                    child: const Text(
                       'Já está registrado clique aqui',    
                     ),
                     onTap: () => Navigator.of(context).pushNamed('/'),
                   )
                 ),
 
-                SizedBox(height: 30.0),
+                const SizedBox(height: 30.0),
 
                 // Campo para Nome
                 TextField(
@@ -64,11 +72,11 @@ class _CadPageState extends State<CadPage> {
                     nome = text;
                   },
                   keyboardType: TextInputType.emailAddress,
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                     labelText: 'Nome', border: OutlineInputBorder()),
                 ),
 
-                SizedBox(height: 30.0),
+                const SizedBox(height: 30.0),
 
                 // Campo para Email
                 TextField(
@@ -76,11 +84,11 @@ class _CadPageState extends State<CadPage> {
                     email = text;
                   },
                   keyboardType: TextInputType.emailAddress,
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                     labelText: 'Email', border: OutlineInputBorder()),
                 ),
 
-                SizedBox(height: 30.0),
+                const SizedBox(height: 30.0),
 
                 // Campo para Senha
                 TextField(
@@ -88,14 +96,14 @@ class _CadPageState extends State<CadPage> {
                     senha = text;
                   },
                   obscureText: true,
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                       labelText: 'Senha', border: OutlineInputBorder()),
                 ),
 
-                SizedBox(height: 30.0),
+                const SizedBox(height: 30.0),
 
                 // Botão de Cadastro
-               ElevatedButton(
+                ElevatedButton(
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.transparent,
                     foregroundColor: Colors.white,
@@ -103,28 +111,26 @@ class _CadPageState extends State<CadPage> {
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(12),
                     ),
-                    side: const BorderSide(
-                      
+
+                    side: const BorderSide(                      
                       width: 1.0,
                       color: Colors.white,
                     )
-                    
                   ),
                   
-                  onPressed: _cadastro,
+                  onPressed:(){ cadastro(nome, email, senha);},
 
                   child: Container(
                     width: double.infinity, 
-                    child: Text(
+                    child: const Text(
                       'Cadastrar-se', 
-                      textAlign: TextAlign.center
-                      
+                      textAlign: TextAlign.center                      
                     ),
                   ),
                   
                 ),
 
-                SizedBox(height: 10.0),
+                const SizedBox(height: 10.0),
                 
               ],
             ),

@@ -9,7 +9,7 @@ class ComponentDrawer extends StatelessWidget {
           children: [
             
             // Widget de conta do usuario
-            UserAccountsDrawerHeader(
+            const UserAccountsDrawerHeader(
               // currentAccountPicture: ClipRRect(
               //   borderRadius: BorderRadius.circular(40), 
               //   child:image.asset('endereco')
@@ -20,9 +20,9 @@ class ComponentDrawer extends StatelessWidget {
 
             // Opção de Home
             ListTile(
-              leading: Icon(Icons.home),
-              title: Text('Inicio'),
-              subtitle: Text('teste pra tu ver'),
+              leading: const Icon(Icons.home),
+              title: const Text('Inicio'),
+              subtitle: const Text('Página de inicio'),
               onTap: (){
                 print('home');
               },
@@ -30,9 +30,9 @@ class ComponentDrawer extends StatelessWidget {
 
             // Opção de Agenda
             ListTile(
-              leading: Icon(Icons.calendar_month),
-              title: Text('Agenda'),
-              subtitle: Text('Veja aqui seus horarios'),
+              leading: const Icon(Icons.calendar_month),
+              title: const Text('Agenda'),
+              subtitle: const Text('Veja aqui seus horarios'),
               onTap: (){
                 print('home');
               },
@@ -40,9 +40,9 @@ class ComponentDrawer extends StatelessWidget {
 
             // Opção de Configurações
             ListTile(
-              leading: Icon(Icons.settings),
-              title: Text('Configurações'),
-              subtitle: Text('Configura aqui'),
+              leading: const Icon(Icons.settings),
+              title: const Text('Configurações'),
+              subtitle: const Text('Configura aqui'),
               onTap: (){
                 Navigator.of(context).pushNamed('/config');
               },
@@ -50,9 +50,9 @@ class ComponentDrawer extends StatelessWidget {
 
             // Opção de Logout
             ListTile(
-              leading: Icon(Icons.logout),
-              title: Text('Sair'),
-              subtitle: Text('Aqui sai'),
+              leading: const Icon(Icons.logout),
+              title: const Text('Sair'),
+              subtitle: const Text('Aqui sai'),
               onTap: (){
                  Navigator.of(context).pushReplacementNamed('/');
               },

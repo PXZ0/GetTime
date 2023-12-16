@@ -17,7 +17,7 @@ class _ConfigPageState extends State<ConfigPage>{
       body: ListView(
         children:[ 
           Row(children: [
-            Text('Tema escuro'),
+            const Text('Tema escuro'),
             Switch(
               value: AppController.instance.darkTheme, 
               onChanged: (value){

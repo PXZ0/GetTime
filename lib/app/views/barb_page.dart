@@ -14,7 +14,6 @@ class _BarbPageState extends State<BarbPage> {
 
     return const Scaffold(
 
-
     );
   }
 }

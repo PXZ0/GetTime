@@ -17,7 +17,7 @@ class _SplashScreenState extends State<SplashScreen> {
 
   _navigateToLogin() async{
     // Você pode realizar qualquer carregamento inicial aqui, se necessário
-    await Future.delayed(Duration(milliseconds: 1500), () {});
+    await Future.delayed(const Duration(milliseconds: 1500), () {});
     // Após 1.5 segundos
     Navigator.of(context).pushReplacementNamed('/login');;
   }
@@ -40,7 +40,7 @@ class _SplashScreenState extends State<SplashScreen> {
                 fontSize: 48,
                 decoration: TextDecoration.underline
               ),
-              ),
+            ),
           ]
         ),
       ),

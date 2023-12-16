@@ -18,13 +18,19 @@ class GetTime extends StatelessWidget {
       builder: (context, child){
          return MaterialApp(
           title: 'Get Time',
+
+          // Theme
           theme: ThemeData(
             // fontFamily: GoogleFonts.lato().fontFamily,
             primarySwatch: Colors.grey,
+
+            // Tema Escuro ou claro
             brightness: AppController.instance.darkTheme 
               ? Brightness.dark 
               : Brightness.light
           ),
+
+          // Rotas
           initialRoute: '/',
           routes: {
             '/': (context) => SplashScreen(),

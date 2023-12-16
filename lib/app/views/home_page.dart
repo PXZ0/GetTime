@@ -26,7 +26,7 @@ class BarbeariaSearchDelegate extends SearchDelegate{
       onPressed: () {
         close(context, null);
       }, 
-      icon: Icon (Icons.arrow_back)
+      icon: const Icon (Icons.arrow_back)
     );
   }
 
@@ -144,32 +144,32 @@ class _HomePageState extends State<HomePage> {
             mainAxisAlignment: MainAxisAlignment.start,
             children: <Widget> [
 
-              SizedBox(height: 20.0,),
+              const SizedBox(height: 20.0,),
 
 
-              Text(
+              const Text(
                 'Perto de Você',
                 style: TextStyle(fontSize: 35.0, fontWeight: FontWeight.bold, fontFamily: 'RobotoMono'),
               ),
               
-              SizedBox(height: 10.0,),
+              const SizedBox(height: 10.0,),
 
-              Text(
+              const Text(
                 'Clique e agende já seu horário',
                 style: TextStyle(
                     fontSize: 17.0, ),
               ),
               
 
-              SizedBox(
+              const SizedBox(
                 width: double.infinity,
                 height: 20.00,
               ),
               
               ListTile(
-                leading: Icon(Icons.location_on),
-                title: Text('Barbearia do Emerson'),
-                subtitle: Text('Aberta agora'),
+                leading: const Icon(Icons.location_on),
+                title: const Text('Barbearia do Emerson'),
+                subtitle: const Text('Aberta agora'),
                 onTap:  _EntrarBarbearia,
               ),
             ],

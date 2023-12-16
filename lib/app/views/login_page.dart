@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors, avoid_print
+
 
 import 'dart:ui';
 
@@ -30,42 +30,42 @@ class _LoginPageState extends State<LoginPage> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                Text(
+                const Text(
                   'Login',
                   style: TextStyle(fontSize: 35.0, fontWeight: FontWeight.bold, fontFamily: 'RobotoMono'),
                 ),
 
-                SizedBox(height: 10.0),
+                const SizedBox(height: 10.0),
 
-                Text(
+                const Text(
                   'Faça login para continuar ',
                   style: TextStyle(
                       fontSize: 17.0, ),
                 ),
 
-                SizedBox(height: 30.0),
+                const SizedBox(height: 30.0),
 
                 TextField(
                   onChanged: (text) {
                     email = text;
                   },
                   keyboardType: TextInputType.emailAddress,
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                     labelText: 'Email', border: OutlineInputBorder()),
                 ),
 
-                SizedBox(height: 30.0),
+                const SizedBox(height: 30.0),
 
                 TextField(
                   onChanged: (text) {
                     senha = text;
                   },
                   obscureText: true,
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                       labelText: 'Senha', border: OutlineInputBorder()),
                 ),
 
-                SizedBox(height: 30.0),
+                const SizedBox(height: 30.0),
 
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(
@@ -87,7 +87,7 @@ class _LoginPageState extends State<LoginPage> {
 
                   child: Container(
                     width: double.infinity, 
-                    child: Text(
+                    child: const Text(
                       'Fazer Login', 
                       textAlign: TextAlign.center
                       
@@ -96,11 +96,11 @@ class _LoginPageState extends State<LoginPage> {
                   
                 ),
 
-                SizedBox(height: 10.0),
+                const SizedBox(height: 10.0),
                 
                 Container(
                   child: GestureDetector(
-                    child: Text(
+                    child: const Text(
                       'Ainda não tem cadastro? Clique aqui',    
                     ),
                     onTap: () => Navigator.of(context).pushNamed('/cadastro'),
