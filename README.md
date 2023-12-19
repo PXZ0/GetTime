@@ -1,6 +1,6 @@
 # getime
 
-A new Flutter project.
+A project for controller and schedule appointments in barbershops.
 
 ## Getting Started
 
