@@ -1,16 +1,21 @@
-# getime
+# Getime
+>Status: Developing ⚠️
 
-A project for controller and schedule appointments in barbershops.
+## About
 
-## Getting Started
+It is a mobile project for controlling and scheduling appointments in barbershops, where you can locate the barbershops closest to you. Thus helping barbers and their customers.
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
+## Tools 🛠️
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+- DART
+- Flutter
+- PHP
+- MySQL
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## How to run the application
+
+````bash
+  # Clone the project
+  git clone https://github.com/PXZ0/GetTime
+````
